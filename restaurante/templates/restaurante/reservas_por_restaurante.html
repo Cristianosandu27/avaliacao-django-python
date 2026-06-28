@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Restaurante — reservas por restaurante</h1>
+
+<ul>
+    {% for restaurante in restaurantes %}
+        <li>
+            <strong>Restaurante: {{ restaurante.nome }}</strong>
+
+            <ul>
+                {% for reserva in restaurante.reservas.all %}
+                    <li>
+                        {{ reserva.cliente.nome }},
+                        {{ reserva.data }},
+                        {{ reserva.hora }},
+                        {{ reserva.numero_pessoas }} pessoas
+                    </li>
+                {% empty %}
+                    <li>Sem reservas.</li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+</ul>
+
+<p><a href="{% url 'menu_por_restaurante' %}">Ver menu por restaurante</a></p>
+{% endblock %}

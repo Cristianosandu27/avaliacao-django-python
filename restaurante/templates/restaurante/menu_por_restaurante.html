@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Restaurante — menu por restaurante</h1>
+
+<ul>
+    {% for restaurante in restaurantes %}
+        <li>
+            <strong>Restaurante: {{ restaurante.nome }}</strong>
+
+            <ul>
+                {% for prato in restaurante.pratos.all %}
+                    <li>
+                        {{ prato.nome }},
+                        {{ prato.preco }}€
+                    </li>
+                {% empty %}
+                    <li>Sem pratos no menu.</li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

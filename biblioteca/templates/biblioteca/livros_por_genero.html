@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Biblioteca — livros por género</h1>
+
+<ul>
+    {% for genero in generos %}
+        <li>
+            <strong>Género: {{ genero.nome }}</strong>
+
+            <ul>
+                {% for livro in genero.livros.all %}
+                    <li>
+                        {{ livro.titulo }},
+                        <a href="{% url 'detalhe_autor' livro.autor.id %}">
+                            {{ livro.autor.nome }}
+                        </a>
+                    </li>
+                {% empty %}
+                    <li>Sem livros neste género.</li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+</ul>
+
+<p><a href="{% url 'livros_por_autor' %}">Ver livros por autor</a></p>
+{% endblock %}

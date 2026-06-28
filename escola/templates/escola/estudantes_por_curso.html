@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Escola — estudantes por curso</h1>
+
+<ul>
+    {% for curso in cursos %}
+        <li>
+            <strong>Curso: {{ curso.nome }}</strong>
+
+            <ul>
+                {% for estudante in curso.estudantes.all %}
+                    <li>{{ estudante.nome }}</li>
+                {% empty %}
+                    <li>Sem estudantes inscritos.</li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

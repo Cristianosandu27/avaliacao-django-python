@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ autor.nome }}</h1>
+
+<h2>Livros deste autor:</h2>
+
+<ul>
+    {% for livro in autor.livros.all %}
+        <li>{{ livro.titulo }}</li>
+    {% empty %}
+        <li>Este autor ainda não tem livros registados.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

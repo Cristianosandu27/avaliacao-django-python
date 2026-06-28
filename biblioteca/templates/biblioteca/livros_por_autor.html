@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Biblioteca — livros por autor</h1>
+
+<ul>
+    {% for autor in autores %}
+        <li>
+            <strong>{{ autor.nome }}</strong>
+
+            <ul>
+                {% for livro in autor.livros.all %}
+                    <li>
+                        {{ livro.titulo }},
+                        {% for genero in livro.generos.all %}
+                            {{ genero.nome }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </li>
+                {% empty %}
+                    <li>Sem livros registados.</li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

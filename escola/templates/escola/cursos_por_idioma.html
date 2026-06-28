@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Escola — cursos por idioma</h1>
+
+<ul>
+    {% for idioma in idiomas %}
+        <li>
+            <strong>Idioma: {{ idioma.nome }}</strong>
+
+            <ul>
+                {% for curso in idioma.cursos.all %}
+                    <li>
+                        {{ curso.nome }},
+                        Professor: {{ curso.professor.nome }}
+                    </li>
+                {% empty %}
+                    <li>Sem cursos neste idioma.</li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+</ul>
+
+<p><a href="{% url 'estudantes_por_curso' %}">Ver estudantes por curso</a></p>
+{% endblock %}
