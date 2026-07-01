@@ -11,4 +11,5 @@ urlpatterns = [
     path("biblioteca/", include("biblioteca.urls")),
     path("escola/", include("escola.urls")),
     path("restaurante/", include("restaurante.urls")),
+    path("nacionalidades/", include("nacionalidades.urls")),
 ]
