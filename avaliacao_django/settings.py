@@ -17,6 +17,7 @@ INSTALLED_APPS = [
     'biblioteca',
     'escola',
     'restaurante',
+    'nacionalidades'
 ]
 
 MIDDLEWARE = [

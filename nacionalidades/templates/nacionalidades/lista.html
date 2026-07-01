@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Lista de Nacionalidades</h1>
+
+    <ul>
+        {% for nacionalidade in nacionalidades %}
+            <li>{{ nacionalidade }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
